@@ -11,4 +11,14 @@ Feature: Smoke steps
     Then I wait for element with xpath "//*[@id='res']" to be present
     Then element with xpath "//*[@id='res']" should contain text "Cucumber"
 
+  @predefined2
+  Scenario: Predefined steps for Yahoo
+    Given I open url "https://www.yahoo.com/"
+    Then I should see page title as "Yahoo"
+    Then element with xpath "//input[@name='p']" should be present
+    When I type "San Francisco" into element with xpath "//input[@name='p']"
+    Then I click on element using JavaScript with xpath "//button[@id='header-desktop-search-button']"
+    Then I wait for element with xpath "//*[@id='web']" to be present
+    Then element with xpath "//*[@id='web']" should contain text "San Francisco Travel"
+
   
